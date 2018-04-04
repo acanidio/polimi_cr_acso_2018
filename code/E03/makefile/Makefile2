@@ -1,0 +1,24 @@
+# Commento
+CC=gcc
+CFLAGS=-c -Wall
+
+all: main
+
+main: main.o fatt.o hello.o
+	$(CC) main.o fatt.o hello.o -o main
+	
+main.o: main.c
+	$(CC) $(CFLAGS) main.c
+	
+fatt.o: fatt.c
+	$(CC) $(CFLAGS) fatt.c
+	
+hello.o: hello.c
+	$(CC) $(CFLAGS) hello.c
+	
+clean:
+	rm *.o main
+	
+fatt.o: fatt.c functions.h
+hello.o: hello.c functions.h
+main.o: main.c functions.h

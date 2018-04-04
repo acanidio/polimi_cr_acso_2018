@@ -1,0 +1,23 @@
+# Commento
+CC=gcc
+CFLAGS=-Wall
+LDFLAGS=
+SOURCES=main.c hello.c fatt.c
+OBJ=$(SOURCES:.c=.o)
+EXECUTABLE=main
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJ)
+	$(CC) $(LDFLAGS) $(OBJ) -o $@
+	
+.c:.o
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm $(OBJ) $(EXECUTABLE)
+	
+# gcc -MM *.c
+fatt.o: fatt.c functions.h
+hello.o: hello.c functions.h
+main.o: main.c functions.h
