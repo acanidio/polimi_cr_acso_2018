@@ -1,0 +1,8 @@
+	.data
+	.text
+	addi	$s0, $zero, 3
+cond:	sgt	$s1, $s0, $zero
+	bne	$s1, $zero, end
+	addi	$s0, $s0, -1
+	b	cond
+end:
